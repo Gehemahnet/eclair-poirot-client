@@ -7,22 +7,24 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --ext .js,.jsx,.ts,.vue",
+    "lint-fix": "eslint --ext .js,.jsx,.ts,.vue --fix"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@nuxtjs/i18n": "^7.3.1",
-    "eslint": "^8.0.1",
-    "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
-    "eslint-plugin-promise": "^6.0.0",
+    "@nuxtjs/i18n": "8.0.0-rc.5",
+    "@typescript-eslint/eslint-plugin": "^6.9.1",
+    "@typescript-eslint/parser": "^6.9.1",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-sonarjs": "^0.21.0",
     "eslint-plugin-vue": "^9.18.1",
     "nuxt": "^3.8.1",
     "typescript": "^5.2.2",
     "vue": "^3.3.8",
     "vue-router": "^4.2.5"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }

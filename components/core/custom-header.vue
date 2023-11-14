@@ -1,34 +1,37 @@
 <template>
-<header class="header">
-  <header-logo/>
-  <nav class="header__navigation">
-    <nuxt-link v-for="link in navigationLinks" :key="link.to"></nuxt-link>
-  </nav>
-</header>
+  <header class="header">
+    <header-logo />
+    <nav class="header__navigation">
+      <nuxt-link
+        v-for="link in navigationLinks"
+        :key="link.to"
+      />
+    </nav>
+  </header>
 </template>
 
 <script setup lang="ts">
 
-import HeaderLogo from '~/components/svg/header-logo.vue'
+import HeaderLogo from '~/components/svg/header-logo.vue';
 
 const navigationLinks = [
-  {
-    to: '/',
-    label: t('navigation.home')
-  },
-  {
-    to: '/shop',
-    label: t('navigation.shop')
-  },
-  {
-    to: '/about',
-    label: t('navigation.about')
-  },
-  {
-    to: '/contact',
-    label: t('navigation.contact')
-  }
-]
+  // {
+  //   to: '/',
+  //   label: t('navigation.home')
+  // },
+  // {
+  //   to: '/shop',
+  //   label: t('navigation.shop')
+  // },
+  // {
+  //   to: '/about',
+  //   label: t('navigation.about')
+  // },
+  // {
+  //   to: '/contact',
+  //   label: t('navigation.contact')
+  // }
+];
 </script>
 
 <style lang="scss" scoped>
