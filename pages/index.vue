@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import DesktopLayout from '~/components/core/desktop-layout.vue';
+import DesktopLayout from '~/components/core/layout/desktop-layout.vue';
 
 </script>
 

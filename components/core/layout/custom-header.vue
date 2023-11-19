@@ -14,11 +14,12 @@
 
 import HeaderLogo from '~/components/svg/header-logo.vue';
 
+const {t} = useI18n();
 const navigationLinks = [
-  // {
-  //   to: '/',
-  //   label: t('navigation.home')
-  // },
+  {
+    to: '/',
+    label: t('navigation.home'),
+  },
   // {
   //   to: '/shop',
   //   label: t('navigation.shop')
