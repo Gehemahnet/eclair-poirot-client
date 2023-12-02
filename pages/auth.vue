@@ -6,54 +6,64 @@
           class="auth__logo"
           src="img/auth/auth-logo.png"
         />
-        <form
-          class="auth__form"
-          @submit.prevent="signInHandler"
-        >
+        <div class="auth__description">
           <h1 class="auth__title">
             {{ $t('auth.title') }}
           </h1>
-          <h4 class="auth__title">
+          <h5 class="auth__subtitle">
             {{ $t('auth.subtitle') }}
-          </h4>
-          <input
-            v-model="state.form.username"
-            type="text"
+          </h5>
+          <form
+            class="auth__form"
+            @submit.prevent="signInHandler"
           >
-          <input
-            v-model="state.form.password"
-            type="text"
-          >
-          <!--        <custom-input-->
-          <!--          v-model="state.form.username"-->
-          <!--          :placeholder="$t('auth.inputs.login.placeholder')"-->
-          <!--        />-->
-          <!--        <custom-input-->
-          <!--          v-model="state.form.password"-->
-          <!--          :placeholder="$t('auth.inputs.login.placeholder')"-->
-          <!--          type="password"-->
-          <!--        />-->
-          <custom-text-button :label="$t('auth.forgotPassword')" />
-          <custom-button
-            :label="$t('auth.login')"
-          />
-          <custom-divider :label="$t('or')" />
-          <div class="auth__social-buttons">
-            <button class="button button_social">
-              <google-icon />
+            <div class="auth__form-fields">
+              <custom-input
+                v-model="state.form.username"
+                :placeholder="$t('auth.inputs.login.placeholder')"
+                :prefix="letterIcon"
+              />
+              <custom-input
+                v-model="state.form.password"
+                :placeholder="$t('auth.inputs.password.placeholder')"
+                type="password"
+                :prefix="lockIcon"
+              />
+            </div>
+            <button
+              class="auth__forgot-password"
+              type="button"
+              @click="forgotPassword"
+            >
+              {{ $t('auth.forgotPassword') }}
             </button>
-            <button class="button button_social">
-              <facebook-icon />
+            <button
+              class="auth__login button_filled-secondary"
+              type="button"
+              @click="signIn"
+            >
+              {{ $t('auth.login') }}
             </button>
-            <button class="button button_social">
-              <apple-icon />
-            </button>
-          </div>
-          <span>
-            {{ $t('auth.dontHaveAccount') }}
-          </span>
-          <custom-text-button :label="$t('auth.signUp')" />
-        </form>
+            <custom-divider :label="$t('or')" />
+            <div class="auth__social-buttons">
+              <button class="button button_social">
+                <google-icon />
+              </button>
+              <button class="button button_social">
+                <facebook-icon />
+              </button>
+              <button class="button button_social">
+                <apple-icon />
+              </button>
+            </div>
+            <div class="auth__to-sign-up">
+              <span>
+                {{ $t('auth.dontHaveAccount') }}
+              </span>
+              <button>{{ $t('auth.signUp') }}</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -62,13 +72,14 @@
 <script setup lang="ts">
 import {definePageMeta} from '#imports';
 import CustomInput from '~/components/core/ui/custom-input.vue';
-import CustomTextButton from '~/components/core/ui/custom-text-button.vue';
-import CustomButton from '~/components/core/ui/custon-button.vue';
 import CustomDivider from '~/components/core/ui/custom-divider.vue';
 import GoogleIcon from '~/components/svg/google-icon.vue';
 import FacebookIcon from '~/components/svg/facebook-icon.vue';
 import AppleIcon from '~/components/svg/apple-icon.vue';
 import AuthService from '~/services/auth';
+
+import letterIcon from '~/components/svg/letter-icon.vue';
+import lockIcon from '~/components/svg/lock-icon.vue';
 
 definePageMeta({
   layout: 'plain',
@@ -81,6 +92,9 @@ const state = reactive({
   },
 });
 const {signIn, signUp} = AuthService();
+const forgotPassword = () => {
+
+};
 const signInHandler = () => {
   signIn(state.form)
     .then((data) => {
@@ -109,14 +123,41 @@ const signInHandler = () => {
   &__logo {
     width: 50%;
   }
-  &__form {
+  &__description {
     width: 50%;
     @include flex-mixin(column, center, center);
-    padding: calc(var(--medium-padding) * 5);
+    padding: calc(var(--medium-padding) * 3) calc(var(--medium-padding) * 5);
+  }
+  &__form {
+    margin-top: var(--medium-padding);
+    @include flex-mixin(column, center, center);
+    width: 100%;
+    &-fields {
+      @include flex-mixin(column, center, center);
+      width: 100%;
+      gap: var(--big-gap);
+    }
+  }
+  &__title {
+    text-align: center;
+  }
+  &__forgot-password {
+    height: auto;
+    font-size: var(--common-font-size);
+    line-height: 1.25em;
+    align-self: flex-end;
+    color: var(--grey-text-color);
+  }
+
+  &__login {
+    margin: var(--large-padding) 0;
+    max-width: 100%;
+    min-width: 40%;
   }
   &__social-buttons {
     padding: 0 var(--large-padding);
     display: flex;
+    width: 100%;
     gap: var(--small-gap);
   }
 }

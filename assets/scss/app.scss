@@ -12,12 +12,43 @@
 }
 
 button {
+  cursor: pointer;
   height: var(--button-height);
   border-radius: var(--small-border-radius);
+  font-size: var(--common-font-size);
 }
 input {
   height: var(--input-heigth);
+  width: 100%;
   border-radius: var(--small-border-radius);
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25) inset;
+  padding: var(--medium-padding);
+
+}
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: 800;
+  line-height: 1.25em;
+}
+h2 {
+  font-size: var(--h2-font-size);
+  line-height: 1.25em;
+}
+h3 {
+  font-size: var(--h3-font-size);
+  line-height: 1.25em;
+}
+h4 {
+  font-size: var(--h4-font-size);
+  line-height: 1.25em;
+}
+h5 {
+  font-size: var(--h5-font-size);
+  line-height: 1.25em;
+}
+h6 {
+  font-size: var(--h6-font-size);
+  line-height: 1.25em;
 }
 
 .button {
@@ -26,6 +57,7 @@ input {
   gap: var(--button-gap);
   justify-content: center;
   align-items: center;
+  flex: 1;
   &_social {
     background: var(--social-button-background);
   }

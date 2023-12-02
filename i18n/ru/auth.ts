@@ -1,5 +1,5 @@
 export default {
-  title: 'Добро пожаловать',
+  title: 'Авторизация',
   subtitle: 'Войти с помощью email',
   forgotPassword: 'Забыли пароль?',
   login: 'Войти',
@@ -8,6 +8,9 @@ export default {
   inputs: {
     login: {
       placeholder: 'example@mail.com',
+    },
+    password: {
+      placeholder: '***********',
     },
   },
 };
