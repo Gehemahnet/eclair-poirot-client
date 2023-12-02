@@ -1,28 +1,24 @@
 import type {ISignInDto, ISignUpDto, ISignInResponse, ISignUpResponse} from '~/services/auth/types';
 import createApiUrl from '~/services';
+import errorHandling from '~/services/error-handling';
 
 const AuthService = function() {
-  async function signIn(data: ISignInDto) {
+  async function signIn(dto: ISignInDto) {
     const url = createApiUrl('auth');
     const headers = {
       'Content-type': 'application/x-www-form-urlencoded',
     };
-    const body = new URLSearchParams(data);
-    try {
-      const response = await useFetch<ISignInResponse>(url, {
-        method: 'POST',
-        headers,
-        body,
-        onResponse({response}) {
-          const tokenCookie = useCookie('token', {
-            expires: new Date(response._data.expires),
-          });
-          tokenCookie.value = response._data.access_token;
-        },
-      });
-      return response.data.value;
-    } catch (error) {
-      throw Error(error.statusCode);
+    // Здесь лучше поменять тип данных на JSON
+    const body = new URLSearchParams(dto);
+    const {data, error} = await useFetch(url, {
+      method: 'POST',
+      headers,
+      body,
+    });
+    if (error.value) {
+      errorHandling(error.value);
+    } else {
+      return data.value;
     }
   }
   async function signUp(body: ISignUpDto) {

@@ -21,7 +21,7 @@ module.exports = {
       }
     ],
     'vue/multi-word-component-names': ['error', {
-      ignores: ['index', '[...slug]']
+      ignores: ['index', 'plain', 'default', 'auth']
     }],
     'vue/block-tag-newline': ['error', {
       singleline: 'always',

@@ -1,6 +1,8 @@
 <template>
   <custom-header />
-  <main />
+  <main>
+    <slot />
+  </main>
 </template>
 
 <script setup lang="ts">
