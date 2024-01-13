@@ -22,6 +22,6 @@ const props = defineProps<IProps>();
 
 </script>
 
-<style scoped lang="scss">
+<style scoped>
 
 </style>

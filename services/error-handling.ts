@@ -1,11 +1,11 @@
-import {FetchError} from 'ofetch';
+import type {FetchError} from 'ofetch';
 
 export default function(error: FetchError) {
-  const {t} = useI18n();
-  console.log(error);
+  const {$i18n} = useNuxtApp();
+  console.error(error);
   switch (error.status) {
   case 422: {
-    console.log(t('error.fetch.422'));
+    console.error($i18n.t('error.fetch.422'));
   }
   }
 }

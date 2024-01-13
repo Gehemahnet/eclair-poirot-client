@@ -1,0 +1,55 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  max-width: 1296px;
+  margin: 0 auto;
+}
+
+button {
+  cursor: pointer;
+  height: var(--button-height);
+  border-radius: var(--small-border-radius);
+  font-size: var(--common-font-size);
+}
+
+input {
+  height: var(--input-heigth);
+  width: 100%;
+  border-radius: var(--small-border-radius);
+  padding: var(--medium-padding);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+  font-weight: 800;
+  line-height: 1.25em;
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+  line-height: 1.25em;
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+  line-height: 1.25em;
+}
+
+h4 {
+  font-size: var(--h4-font-size);
+  line-height: 1.25em;
+}
+
+h5 {
+  font-size: var(--h5-font-size);
+  line-height: 1.25em;
+}
+
+h6 {
+  font-size: var(--h6-font-size);
+  line-height: 1.25em;
+}

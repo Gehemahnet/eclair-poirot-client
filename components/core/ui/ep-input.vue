@@ -1,56 +1,52 @@
 <template>
-  <div class="custom-input__container">
+  <div class="ep-input__container">
     <component
       :is="prefix"
       v-if="prefix"
-      class="custom-input__prefix"
+      class="ep-input__prefix"
     />
-    <input
-      class="custom-input__input"
+    <InputText
+      class="ep-input__input"
       :class="{'with-prefix' :prefix}"
       :value="modelValue"
       :type="type"
       :placeholder="placeholder"
       @change="onChangeHandler"
-    >
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import type {Component} from 'vue';
+import type {Component, InputTypeHTMLAttribute} from 'vue';
 
 interface IProps {
-  placeholder?: string;
-  type?: string;
+  placeholder: string;
+  type: InputTypeHTMLAttribute;
   modelValue: string;
   prefix?: Component | string;
 }
+
 interface IEmits {
   (event: 'update:modelValue', value: string): void;
 }
-const props = withDefaults(defineProps<IProps>(), {
-  placeholder: '',
-  type: 'text',
-  prefix: '',
-});
 
+const props = defineProps<IProps>();
 const emits = defineEmits<IEmits>();
 const onChangeHandler = (e) => {
   emits('update:modelValue', e.target.value);
 };
 </script>
 
-<style scoped lang="scss">
-.custom-input {
-  &__container {
-    width: 100%;
-    position: relative;
-  }
-  &__prefix {
-    position: absolute;
-    top: calc(var(--medium-padding) - 1px);
-    left: var(--medium-padding);
-  }
+<style scoped>
+.ep-input__container {
+  width: 100%;
+  position: relative;
+}
+
+.ep-input__prefix {
+  position: absolute;
+  top: calc(var(--medium-padding) - 1px);
+  left: var(--medium-padding);
 }
 
 .with-prefix {

@@ -10,15 +10,21 @@ const AuthService = function() {
     };
     // Здесь лучше поменять тип данных на JSON
     const body = new URLSearchParams(dto);
-    const {data, error} = await useFetch(url, {
-      method: 'POST',
-      headers,
-      body,
-    });
+    const {data, error} =
+      await useFetch<ISignInResponse>(url, {
+        method: 'POST',
+        headers,
+        body,
+      });
+    if (data.value) {
+      const tokenCookie = useCookie('token', {
+        expires: new Date(data.value.expires),
+      });
+      tokenCookie.value = data.value.access_token;
+    }
     if (error.value) {
       errorHandling(error.value);
-    } else {
-      return data.value;
+      return error;
     }
   }
   async function signUp(body: ISignUpDto) {

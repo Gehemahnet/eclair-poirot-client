@@ -9,6 +9,6 @@
 import CustomHeader from '~/components/core/layout/custom-header.vue';
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

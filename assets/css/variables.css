@@ -1,21 +1,21 @@
 :root {
-  //border-radius
+  /*border-radius*/
   --border-radius: 24px;
   --small-border-radius: 16px;
-  //gap
+  /*gap*/
   --small-gap: 8px;
   --medium-gap: 16px;
   --big-gap: 24px;
-  //height
+  /*height*/
   --big-button-height: 80px;
   --button-height: 54px;
   --input-heigth: 54px;
-  //padding
+  /*padding*/
   --small-padding: 8px;
   --medium-padding: 16px;
   --big-padding: 24px;
   --large-padding: 32px;
-  //font-size
+  /*font-size*/
   --small-font-size: 16px;
   --common-font-size: 20px;
   --big-font-size: 24px;
@@ -28,14 +28,14 @@
   --h6-font-size: 16px;
 
 
-  //text-color
+  /*text-color*/
   --button-filled-text-color: #FFFFFF;
   --dark-text-color: #000000;
   --grey-text-color: #525C60;
-  //border-color
+  /*border-color*/
   --primary-border-color: #ED9B40;
   --secondary-border-color: #17BEBB;
-  //background-color
+  /*background-color*/
   --main-background-color: #FFFFFF;
   --social-button-background: #E7F2F5;
   --button-primary-background: #ED9B40;
